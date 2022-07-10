@@ -1,20 +1,20 @@
 [
 	{
-		"Duration": 10,
+		"Duration": 60,
 		"Label": "localhost",
 		"Type": "pprof",
-		"URL": "http://localhost:9000/debug/pprof/profile"
+		"URL": "http://localhost:8888/debug/pprof/profile"
 	},
 	{
-		"Duration": 10,
+		"Duration": 60,
 		"Label": "localhost",
 		"Type": "httplog",
-		"URL": "http://localhost:9000/debug/log/httplog"
+		"URL": "http://localhost:8888/debug/log/httplog"
 	},
 	{
-		"Duration": 10,
+		"Duration": 60,
 		"Label": "localhost",
 		"Type": "slowlog",
-		"URL": "http://localhost:9000/debug/log/slowlog"
+		"URL": "http://localhost:8888/debug/log/slowlog"
 	}
 ]
