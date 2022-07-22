@@ -23,9 +23,17 @@ func (p *processor) Process(snapshot *collect.Snapshot) (io.ReadCloser, error) {
 		return nil, fmt.Errorf("failed to find snapshot body: %w", err)
 	}
 
-	cmd := exec.Command("pt-query-digest", "--limit", "100%", "--output", "json", bodyPath)
 
+	// use slackcat
+	cmd := exec.Command("bash", "-c", "pt-query-digest --limit 100% "+bodyPath+" | slackcat" )
 	res, err := cmd.Output()
+	if err != nil {
+		return nil, fmt.Errorf("external process aborted: %w", err)
+	}
+
+	cmd = exec.Command("pt-query-digest", "--limit", "100%", "--output", "json", bodyPath)
+
+	res, err = cmd.Output()
 	if err != nil {
 		return nil, fmt.Errorf("external process aborted: %w", err)
 	}
