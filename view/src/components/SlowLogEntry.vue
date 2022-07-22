@@ -70,9 +70,9 @@
             <summary>{{ queryClass.fingerprint }}</summary>
             <div>
               <div>クエリ数: {{ queryClass.query_count }}</div>
-              <button @click="copy(queryClass.example.query)">
-                サンプルクエリのコピー
-              </button>
+	      <div>
+              {{ queryClass.example.query }}
+              </div>
               <table border="1">
                 <thead>
                   <tr>
