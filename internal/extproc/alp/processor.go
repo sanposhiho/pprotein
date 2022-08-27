@@ -25,7 +25,7 @@ func (p *processor) Process(snapshot *collect.Snapshot) (io.ReadCloser, error) {
 		return nil, fmt.Errorf("failed to find snapshot body: %w", err)
 	}
 
-	cmd := exec.Command("alp", "ltsv", "--format", "tsv", "--file", bodyPath)
+	cmd := exec.Command("alp", "ltsv", "--limit", "15000", "--format", "tsv", "--file", bodyPath)
 
 	res, err := cmd.Output()
 	if err != nil {
